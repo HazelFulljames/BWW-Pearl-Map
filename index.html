@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BWW Pearl Map</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase.js"></script>
+    
+    <style>
+      * {
+          margin: 0px;
+      }
+    </style>
+
+    <script>
+      function getcoords(e) {
+      x = e.clientX;
+      y = e.clientY;
+      document.getElementById("coords").innerHTML="&nbsp;&nbsp;Coordinates: (" + (x - 160) + ", " + (y - 160) + ")";
+      }
+  </script>
+
+  </head>
+
+  <body>
+
+    <template>
+      <canvas id="canvas" width="320" height="320" style="float: left; border:1px solid #000000;" onmousemove="getcoords(event)"></canvas>
+    </template>
+
+    <div style="display:none;">
+      <img id="-1,0" width="320" height="320" style="object-fit: fill;" src="./assets/images/-1,0.png">
+      <img id="0,0" width="320" height="320" style="object-fit: fill;" src="./assets/images/0,0.png">
+    </div>
+    
+    <div id="canvasdiv">
+      <canvas id="canvas"  width="320" height="320" style="float: left; border:1px solid #000000;" onmousemove="getcoords(event)"></canvas>
+    </div>
+    <div id="coords"></div>
+
+    <p>Town X, Town Y: </p>
+    <input type="number" id="townx" name="townx" min="-10" max="10" value="-1">
+    <input type="number" id="towny" name="towny" min="-10" max="10" value="0">
+
+    <br>
+
+    <button type="button" id="searchmap">Search Map</button>
+
+    <br><br>
+
+    <hr>
+
+    <br>
+
+    <p>Pearl X, Pearl Y: </p>
+    <input type="number" id="x" name="x" min="-160" max="160">
+    <input type="number" id="y" name="y" min="-160" max="160">
+
+    <p>Pearl Type: </p>
+    <select id="type" name="type">
+      <option value="none">Unspecified</option>
+      <option value="white">White</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="green">Blue</option>
+      <option value="cyan">Cyan</option>
+      <option value="magenta">Magenta</option>
+      <option value="yellow">Yellow</option>
+      <option value="black">Black</option>
+    </select>
+
+    <br>
+
+    <button type="button" id="addpearl">Add Pearl</button>
+
+    <br><br><br><br>
+
+    <p>Upset? Come bother me on discord! likeem_apples</p>
+    <script type="module" src="./scripts/index.js"></script>
+  </body>
+</html>
